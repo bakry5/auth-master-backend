@@ -13,6 +13,9 @@ if (process.env.NODE_ENV !== "production") {
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+connectDB()
+ 
+
 app.use(
 	cors({
 		origin: process.env.CLIENT_URL || "http://localhost:5173",
@@ -27,7 +30,6 @@ app.use("/api/auth", authRoutes);
 app.use("/",(req, res) => {
 	res.send("Welcome to the API");
 }	);
-
 
 
 export default app;
